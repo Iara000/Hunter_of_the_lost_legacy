@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.NetworkInformation;
+using Unity.PlasticSCM.Editor.WebApi;
 using Unity.VisualScripting;
+using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -12,16 +16,18 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) ) {
-        if (GameIsPaused)
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameIsPaused)
             {
                 Resume();
-            } else
+            }
+            else
             {
                 Pause();
             }
         }
-        
+
     }
     public void Resume ()
     {
@@ -30,7 +36,7 @@ public class PauseMenu : MonoBehaviour
         GameIsPaused = false;
     }
 
-    void Pause ()
+    public void Pause ()
     {
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
