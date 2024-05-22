@@ -9,22 +9,19 @@ public class Player : MonoBehaviour
     public int currentHealth;
     public HealthBar healthBar;
     private Rigidbody rb;
-    public float Xspeed;
-    public float Yspeed;
-    public float Zspeed;
+    public float Speed;
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         rb = GetComponent<Rigidbody>();
     }
-    void Update()
+    void FixedUpdate()
     {
         float Horizontal = Input.GetAxis("Horizontal");
         float Vertical = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(Horizontal * Xspeed, Yspeed, Vertical * Zspeed);
-
-        rb.velocity = movement;
+        Vector3 movement = new Vector3(Horizontal, 0, Vertical);
+        rb.MovePosition(transform.position + movement * Speed * Time.deltaTime);
     }
     public void TakeDamage(int damageAmount)
     {

@@ -4,32 +4,36 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Bullet : MonoBehaviour
 {
-    private Camera mainCamera;
     private Rigidbody rb;
-    public float Xspeed;
-    public float Yspeed;
-    public float Zspeed;
+    public Vector3 Vector3;
+    private bool isInsideTrigger;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        mainCamera = Camera.main;
-    }
-    void Update()
-    {
-        Vector3 movement = new Vector3(Xspeed, Yspeed, Zspeed);
-        rb.velocity = movement;
-        if (!IsInsideCameraView())
-        {
-            Destroy(gameObject);
-        }
     }
     void OnCollisionEnter(Collision other)
     {
         Destroy(gameObject);
     }
-    bool IsInsideCameraView()
+    void OnTriggerEnter(Collider other)
     {
-        Vector3 screenPoint = mainCamera.WorldToViewportPoint(transform.position);
-        return screenPoint.x >= 0 && screenPoint.x <= 1 && screenPoint.y >= 0 && screenPoint.y <= 1 && screenPoint.z > 0;
+        if (other.CompareTag("TriggerZone"))
+        {
+            isInsideTrigger = true;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("TriggerZone"))
+        {
+            Destroy(gameObject);
+        }
+    }
+    void FixedUpdate()
+    {
+        if (isInsideTrigger)
+        {
+            rb.MovePosition(transform.position + Vector3 * Time.deltaTime);
+        }
     }
 }

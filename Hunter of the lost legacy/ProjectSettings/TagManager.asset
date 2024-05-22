@@ -9,6 +9,7 @@ TagManager:
   - GL
   - SuperBullet
   - Destroyer
+  - TriggerZone
   layers:
   - Default
   - TransparentFX

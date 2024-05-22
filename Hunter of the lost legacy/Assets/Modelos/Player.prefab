@@ -200,9 +200,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  Xspeed: 10
-  Yspeed: 0
-  Zspeed: 10
+  currentHealth: 0
+  healthBar: {fileID: 0}
+  Speed: 10
 --- !u!4 &5211762893087191745 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d64a4d6d6301beb4d966a0c82cf0be8c, type: 3}

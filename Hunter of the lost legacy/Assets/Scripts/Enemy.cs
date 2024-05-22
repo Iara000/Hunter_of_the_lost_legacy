@@ -1,37 +1,40 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 public class Enemy : MonoBehaviour
 {
-    private Camera mainCamera;
     private Rigidbody rb;
-    public float Xspeed;
-    public float Yspeed;
-    public float Zspeed;
+    public Vector3 Vector3;
+    private bool isInsideTrigger;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        mainCamera = Camera.main;
-    }
-    void Update()
-    {
-        if (!IsInsideCameraView())
-        {
-            rb.velocity = Vector3.zero;
-        }
-        else
-        {
-            Vector3 movement = new Vector3(Xspeed, Yspeed, Zspeed);
-            rb.velocity = movement;
-        }
-    }
-    bool IsInsideCameraView()
-    {
-        Vector3 screenPoint = mainCamera.WorldToViewportPoint(transform.position);
-        return screenPoint.x >= 0 && screenPoint.x <= 1 && screenPoint.y >= 0 && screenPoint.y <= 1 && screenPoint.z > 0;
     }
     void OnCollisionEnter(Collision other)
     {
         Destroy(gameObject);
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("TriggerZone"))
+        {
+            isInsideTrigger = true;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("TriggerZone"))
+        {
+            Destroy(gameObject);
+        }
+    }
+    void FixedUpdate()
+    {
+        if (isInsideTrigger)
+        {
+            rb.MovePosition(transform.position + Vector3 * Time.deltaTime);
+        }
     }
 }
