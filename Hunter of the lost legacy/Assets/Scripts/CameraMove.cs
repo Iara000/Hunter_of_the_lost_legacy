@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour
 {
-    public Vector3 Vector3;
+    public Vector3 Speed;
     void FixedUpdate()
     {
-        transform.Translate(Vector3 * Time.deltaTime);
+        transform.Translate(Speed * Time.deltaTime, Space.World);
     }
 }

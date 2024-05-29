@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6491793666430046304}
   - component: {fileID: 8111301119957580821}
   - component: {fileID: 4640276886076340674}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Victory Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}

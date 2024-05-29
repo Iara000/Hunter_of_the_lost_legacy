@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6735424902725556703}
-  - component: {fileID: 5645676172721774140}
   m_Layer: 0
   m_Name: EnemyGun
   m_TagString: Untagged
@@ -32,20 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3844739193468104927}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5645676172721774140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1641384597487294478}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87d4b9bd31348be44a7803e9246cc72f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Bullet: {fileID: 4761697206728218864, guid: 08452cdbda0ec64479fd9443ee87f357, type: 3}
-  maxTime: 2
 --- !u!1001 &3661981271100053300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -112,11 +97,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: acf51d450a9f37840ae74f344302cfeb, type: 3}
       propertyPath: m_Name
-      value: Enemy 1
+      value: Enemy Right
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: acf51d450a9f37840ae74f344302cfeb, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -205,6 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e66e67de93320f40884381a22ff71bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Xspeed: 5
-  Yspeed: 0
-  Zspeed: -5
+  Speed: {x: 0, y: 0, z: 0}
+  Bullet: {fileID: 0}
+  Gun: {fileID: 0}
+  tempoEntreTiros: 0

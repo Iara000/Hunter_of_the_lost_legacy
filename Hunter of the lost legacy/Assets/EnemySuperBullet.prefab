@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2907257725773993098}
   - component: {fileID: 2773479340027951656}
   - component: {fileID: 814617995107594151}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: EnemySuperBullet
   m_TagString: SuperBullet
   m_Icon: {fileID: 0}
@@ -119,9 +119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd64f62aece32aa45a45590c6800af84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Xspeed: 0
-  Yspeed: 0
-  Zspeed: -10
+  Speed: {x: 0, y: 0, z: 0}
 --- !u!54 &814617995107594151
 Rigidbody:
   m_ObjectHideFlags: 0

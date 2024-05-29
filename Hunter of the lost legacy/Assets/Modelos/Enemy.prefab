@@ -9,10 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5814362551208153160}
-  - component: {fileID: 8991632970941194445}
-  - component: {fileID: 5576740427705891433}
   m_Layer: 0
-  m_Name: EnemyGun
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,46 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5643096165047452453}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8991632970941194445
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4161086303148195213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87d4b9bd31348be44a7803e9246cc72f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Bullet: {fileID: 4761697206728218864, guid: 08452cdbda0ec64479fd9443ee87f357, type: 3}
---- !u!54 &5576740427705891433
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4161086303148195213}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &5321837958049342670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -143,7 +101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: acf51d450a9f37840ae74f344302cfeb, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -200,7 +158,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e66e67de93320f40884381a22ff71bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Vector3: {x: 0, y: 0, z: -5}
+  Speed: {x: 0, y: 0, z: -5}
+  Bullet: {fileID: 4761697206728218864, guid: 08452cdbda0ec64479fd9443ee87f357, type: 3}
+  Gun: {fileID: 5814362551208153160}
+  tempoEntreTiros: 1
 --- !u!54 &1912410341047297799
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -226,7 +187,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!4 &5643096165047452453 stripped
 Transform:

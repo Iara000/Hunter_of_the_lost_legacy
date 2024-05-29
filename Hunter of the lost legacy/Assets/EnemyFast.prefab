@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 153095933323173775}
   - component: {fileID: 1305324757585874117}
   - component: {fileID: 85714490350409681}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: EnemyFast
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e66e67de93320f40884381a22ff71bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Xspeed: 0
-  Yspeed: 0
-  Zspeed: -20
+  Speed: {x: 0, y: 0, z: 0}
+  Bullet: {fileID: 0}
+  Gun: {fileID: 0}
+  tempoEntreTiros: 0

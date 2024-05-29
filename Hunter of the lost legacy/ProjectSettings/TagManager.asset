@@ -8,13 +8,12 @@ TagManager:
   - Enemy
   - GL
   - SuperBullet
-  - Destroyer
   - TriggerZone
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - PlayerEnemy
+  - 
   - Water
   - UI
   - 

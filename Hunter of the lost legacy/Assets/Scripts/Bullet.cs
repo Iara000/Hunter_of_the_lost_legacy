@@ -5,21 +5,20 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Rigidbody rb;
-    public Vector3 Vector3;
-    private bool isInsideTrigger;
+    public Vector3 Speed;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
     void OnCollisionEnter(Collision other)
     {
-        Destroy(gameObject);
-    }
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("TriggerZone"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            isInsideTrigger = true;
+            Destroy(gameObject);
+        }
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
         }
     }
     void OnTriggerExit(Collider other)
@@ -31,9 +30,6 @@ public class Bullet : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (isInsideTrigger)
-        {
-            rb.MovePosition(transform.position + Vector3 * Time.deltaTime);
-        }
+        rb.MovePosition(transform.position + Speed * Time.deltaTime);
     }
 }
