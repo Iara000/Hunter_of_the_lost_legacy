@@ -4,49 +4,75 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Boss : MonoBehaviour
 {
-    public int maxHealth;
-    private int currentHealth;
-    private Camera mainCamera;
     private Rigidbody rb;
-    public float Xspeed;
-    public float Yspeed;
-    public float Zspeed;
+    public Vector3 Speed;
+    private bool isInsideTrigger;
+    public GameObject Bullet;
+    public Transform Gun;
+    public float tempoEntreTiros;
+    private float cronometroDeTiro;
+    public HealthBar healthBar;
+    public int maxHealth = 100;
+    public int currentHealth;
     void Start()
     {
+        healthBar.SetMaxHealth(maxHealth);
         currentHealth = maxHealth;
         rb = GetComponent<Rigidbody>();
-        mainCamera = Camera.main;
-    }
-    void Update()
-    {
-        if (!IsInsideCameraView())
-        {
-        }
-        else
-        {
-            Vector3 movement = new Vector3(Xspeed, Yspeed, Zspeed);
-            rb.velocity = movement;
-        }
-    }
-    public void TakeDamage(int damageAmount)
-    {
-        currentHealth -= damageAmount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        if (currentHealth <= 0)
-        {
-            SceneManager.LoadScene("Victory Scene");
-        }
-    }
-    bool IsInsideCameraView()
-    {
-        Vector3 screenPoint = mainCamera.WorldToViewportPoint(transform.position);
-        return screenPoint.x >= 0 && screenPoint.x <= 1 && screenPoint.y >= 0 && screenPoint.y <= 1 && screenPoint.z > 0;   
+        cronometroDeTiro = tempoEntreTiros;
     }
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
             TakeDamage(20);
+        }
+        if (other.gameObject.CompareTag("Player"))
+        {
+            TakeDamage(40);
+        }
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("TriggerZone"))
+        {
+            isInsideTrigger = true;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("TriggerZone"))
+        {
+            Destroy(gameObject);
+        }
+    }
+    void Update()
+    {
+        if (isInsideTrigger)
+        {
+            cronometroDeTiro -= Time.deltaTime;
+            if (cronometroDeTiro <= 0f)
+            {
+                Instantiate(Bullet, Gun.position, Gun.rotation);
+                cronometroDeTiro = tempoEntreTiros;
+            }
+        }
+    }
+    void FixedUpdate()
+    {
+        if (isInsideTrigger)
+        {
+            rb.MovePosition(transform.position + Speed * Time.deltaTime);
+        }
+    }
+    public void TakeDamage(int damageAmount)
+    {
+        currentHealth -= damageAmount;
+        healthBar.SetHealth(currentHealth);
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        if (currentHealth <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
