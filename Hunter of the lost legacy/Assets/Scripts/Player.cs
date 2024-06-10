@@ -5,25 +5,41 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currentHealth;
+    public int maxHealth;
+    int currentHealth;
     public HealthBar healthBar;
-    private Rigidbody rb;
+    Rigidbody rb;
     public float Speed;
+    public Transform Gun;
+    public GameObject Bullet;
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         rb = GetComponent<Rigidbody>();
     }
+    void Update()
+    {
+        Shoot();
+    }
     void FixedUpdate()
     {
+        Move();
+    }
+    void Move()
+    {
         float Horizontal = Input.GetAxis("Horizontal");
-        float Vertical = Input.GetAxis("Vertical");
-        Vector3 movement = new Vector3(Horizontal, 0, Vertical);
+        Vector3 movement = new Vector3(Horizontal, 0, 1);
         rb.MovePosition(transform.position + movement * Speed * Time.deltaTime);
     }
-    public void TakeDamage(int damageAmount)
+    void Shoot()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(Bullet, Gun.position, Gun.rotation);
+        }
+    }
+    void TakeDamage(int damageAmount)
     {
         currentHealth -= damageAmount;
         healthBar.SetHealth(currentHealth);
@@ -33,7 +49,7 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene("Game Over");
         }
     }
-    public void GiveLife(int GiveAmount)
+    void GiveLife(int GiveAmount)
     {
         currentHealth += GiveAmount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
@@ -44,17 +60,9 @@ public class Player : MonoBehaviour
         {
             TakeDamage(20);
         }
-        if (other.gameObject.CompareTag("SuperBullet"))
-        {
-            TakeDamage(100);
-        }
         if (other.gameObject.CompareTag("Enemy"))
         {
             TakeDamage(40);
-        }
-        if (other.gameObject.CompareTag("GL"))
-        {
-            GiveLife(20);
         }
     }
 }
