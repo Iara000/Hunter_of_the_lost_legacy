@@ -1,21 +1,21 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
-    public int maxHealth;
-    int currentHealth;
-    public HealthBar healthBar;
-    Rigidbody rb;
     public float Speed;
+    private Rigidbody rb;
     public Transform Gun;
     public GameObject Bullet;
+    public float tempoEntreTiros;
+    float cronometroDeTiro;
+    public HealthBar healthBar;
+    public int maxHealth;
+    int currentHealth;
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+        cronometroDeTiro = tempoEntreTiros;
         rb = GetComponent<Rigidbody>();
     }
     void Update()
@@ -24,19 +24,24 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
-        Move();
+        move();
     }
-    void Move()
+    void move()
     {
         float Horizontal = Input.GetAxis("Horizontal");
-        Vector3 movement = new Vector3(Horizontal, 0, 1);
-        rb.MovePosition(transform.position + movement * Speed * Time.deltaTime);
+        Vector3 Move = new Vector3(Horizontal, 0, 1);
+        rb.linearVelocity = Move * Speed;
     }
     void Shoot()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        cronometroDeTiro -= Time.deltaTime;
+        if (cronometroDeTiro <= 0f)
         {
-            Instantiate(Bullet, Gun.position, Gun.rotation);
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Instantiate(Bullet, Gun.position, Gun.rotation);
+                cronometroDeTiro = tempoEntreTiros;
+            }
         }
     }
     void TakeDamage(int damageAmount)
@@ -48,11 +53,6 @@ public class Player : MonoBehaviour
         {
             SceneManager.LoadScene("Game Over");
         }
-    }
-    void GiveLife(int GiveAmount)
-    {
-        currentHealth += GiveAmount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
     }
     void OnCollisionEnter(Collision other)
     {

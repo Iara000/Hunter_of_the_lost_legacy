@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6658218509697473909
+--- !u!1 &50843539888326243
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4008005073735450335}
-  - component: {fileID: 8938096060681067651}
+  - component: {fileID: 6983532744543494762}
+  - component: {fileID: 5101615407733496651}
   m_Layer: 0
   m_Name: Ocean
   m_TagString: Untagged
@@ -17,28 +17,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4008005073735450335
+--- !u!4 &6983532744543494762
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6658218509697473909}
+  m_GameObject: {fileID: 50843539888326243}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 30, y: 30, z: 30}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8938096060681067651
+--- !u!114 &5101615407733496651
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6658218509697473909}
+  m_GameObject: {fileID: 50843539888326243}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d8f6fd535518f5540b4bcc3099582f77, type: 3}
@@ -115,8 +115,8 @@ MonoBehaviour:
   deformationAreaSize: {x: 200, y: 200}
   deformationAreaOffset: {x: 0, y: 0}
   foam: 1
-  foamResolution: 512
-  foamAreaSize: {x: 200, y: 200}
+  foamResolution: 1024
+  foamAreaSize: {x: 100, y: 2000}
   foamAreaOffset: {x: 0, y: 0}
   foamPersistenceMultiplier: 0.5
   foamCurrentInfluence: 0.6
@@ -172,7 +172,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   repetitionSize: 500
   largeOrientationValue: 0
-  largeWindSpeed: 15
+  largeWindSpeed: 30
   largeChaos: 0.85
   largeBand0Multiplier: 1
   largeBand0FadeMode: 1
