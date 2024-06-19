@@ -1,14 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 public class Gun : MonoBehaviour
 {
-    public GameObject Bullet;
-    void Update()
+    public GameObject bullet;
+    void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Instantiate(Bullet, transform.position, Bullet.transform.rotation);
-        }
+        ScheduleNextShot();
+    }
+    void ScheduleNextShot()
+    {
+        float randomDelay = Random.Range(1f, 4f);
+        Invoke("Shoot", randomDelay);
+    }
+    void Shoot()
+    {
+        Instantiate(bullet, transform.position, transform.rotation);
+        ScheduleNextShot();
     }
 }

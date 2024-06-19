@@ -5,16 +5,15 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
-  - TriggerZone
   - Bullet
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Bounds
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 

@@ -1,35 +1,33 @@
-using JetBrains.Annotations;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 public class Bullet : MonoBehaviour
 {
-    private Rigidbody rb;
-    public Vector3 Speed;
+    public Vector3 speed;
+    Rigidbody rb;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
+    void FixedUpdate()
+    {
+        Move();
+    }
+    void Move()
+    {
+        rb.linearVelocity = speed;
+    }
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
-        {
-            Destroy(gameObject);
-        }
         if (other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
         }
-    }
-    void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("TriggerZone"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             Destroy(gameObject);
         }
-    }
-    void FixedUpdate()
-    {
-        rb.MovePosition(transform.position + Speed * Time.deltaTime);
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

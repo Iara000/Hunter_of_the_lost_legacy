@@ -2,20 +2,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
-    public float Speed;
-    private Rigidbody rb;
-    public Transform Gun;
-    public GameObject Bullet;
+    public float speed;
+    Rigidbody rb;
+    public Transform gun;
+    public GameObject bullet;
     public float tempoEntreTiros;
-    float cronometroDeTiro;
+    float cronometro;
     public HealthBar healthBar;
     public int maxHealth;
-    int currentHealth;
+    public int currentHealth;
     void Start()
     {
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-        cronometroDeTiro = tempoEntreTiros;
+        cronometro = tempoEntreTiros;
         rb = GetComponent<Rigidbody>();
     }
     void Update()
@@ -24,23 +24,23 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
-        move();
+        Move();
     }
-    void move()
+    void Move()
     {
-        float Horizontal = Input.GetAxis("Horizontal");
-        Vector3 Move = new Vector3(Horizontal, 0, 1);
-        rb.linearVelocity = Move * Speed;
+        float horizontal = Input.GetAxis("Horizontal") * speed;
+        Vector3 move = new Vector3(0, 0, 10 + horizontal);
+        rb.linearVelocity = move;
     }
     void Shoot()
     {
-        cronometroDeTiro -= Time.deltaTime;
-        if (cronometroDeTiro <= 0f)
+        cronometro -= Time.deltaTime;
+        if (cronometro <= 0f)
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                Instantiate(Bullet, Gun.position, Gun.rotation);
-                cronometroDeTiro = tempoEntreTiros;
+                Instantiate(bullet, gun.position, gun.rotation);
+                cronometro = tempoEntreTiros;
             }
         }
     }
@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Enemy"))
         {
-            TakeDamage(40);
+            TakeDamage(80);
         }
     }
 }
