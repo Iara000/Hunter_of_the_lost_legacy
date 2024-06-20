@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     Rigidbody rb;
     void Start()
     {
+        Destroy(gameObject, 5);
         rb = GetComponent<Rigidbody>();
     }
     void FixedUpdate()

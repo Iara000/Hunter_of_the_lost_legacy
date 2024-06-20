@@ -8,7 +8,7 @@ public class Gun : MonoBehaviour
     }
     void ScheduleNextShot()
     {
-        float randomDelay = Random.Range(1f, 4f);
+        float randomDelay = Random.Range(0f, 5f);
         Invoke("Shoot", randomDelay);
     }
     void Shoot()

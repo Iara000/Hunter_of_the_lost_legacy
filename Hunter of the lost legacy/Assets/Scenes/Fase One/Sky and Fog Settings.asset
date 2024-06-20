@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7724654706381055090
+--- !u!114 &-8956427826836355575
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d877ec3e844f2ca46830012e8e79319b, type: 3}
-  m_Name: 
+  m_Name: PhysicallyBasedSky
   m_EditorClassIdentifier: 
   active: 1
   rotation:
@@ -47,14 +47,14 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 1
   atmosphericScattering:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 1
   renderingMode:
     m_OverrideState: 0
-    m_Value: 1
+    m_Value: 0
   material:
     m_OverrideState: 0
-    m_Value: {fileID: 2100000, guid: 7ecae15a06ce1a8409785ae99dec0341, type: 2}
+    m_Value: {fileID: -876546973899608171, guid: 02532cbb810fb404db49da84f1efe41e, type: 3}
   airDensityR:
     m_OverrideState: 0
     m_Value: 0.04534
@@ -81,7 +81,7 @@ MonoBehaviour:
     m_Value: 8289.296
   aerosolAnisotropy:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 0.8
   ozoneDensityDimmer:
     m_OverrideState: 0
     m_Value: 1
@@ -93,7 +93,7 @@ MonoBehaviour:
     m_Value: 20000
   groundTint:
     m_OverrideState: 0
-    m_Value: {r: 0.122641504, g: 0.1043775, b: 0.09313812, a: 1}
+    m_Value: {r: 0.12, g: 0.1, b: 0.09, a: 1}
   groundColorTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -133,7 +133,7 @@ MonoBehaviour:
   horizonZenithShift:
     m_OverrideState: 0
     m_Value: 0
-  m_SkyVersion: 2
+  m_SkyVersion: 3
   m_ObsoleteEarthPreset:
     m_OverrideState: 0
     m_Value: 1
@@ -143,7 +143,68 @@ MonoBehaviour:
   planetCenterPosition:
     m_OverrideState: 0
     m_Value: {x: 0, y: -6378100, z: 0}
---- !u!114 &-4151792930034644520
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+  m_Name: Sky and Fog Settings
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: 185287106656015229}
+  - {fileID: -8956427826836355575}
+  - {fileID: 5000221820811740086}
+  - {fileID: 7387239775714480124}
+--- !u!114 &185287106656015229
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d7593b3a9277ac4696b20006c21dde2, type: 3}
+  m_Name: VisualEnvironment
+  m_EditorClassIdentifier: 
+  active: 1
+  skyType:
+    m_OverrideState: 1
+    m_Value: 4
+  cloudType:
+    m_OverrideState: 0
+    m_Value: 0
+  skyAmbientMode:
+    m_OverrideState: 0
+    m_Value: 1
+  planetRadius:
+    m_OverrideState: 0
+    m_Value: 6378.1
+  renderingSpace:
+    m_OverrideState: 0
+    m_Value: 1
+  centerMode:
+    m_OverrideState: 1
+    m_Value: 0
+  planetCenter:
+    m_OverrideState: 1
+    m_Value: {x: 0, y: -6378.1, z: 0}
+  windOrientation:
+    m_OverrideState: 0
+    m_Value: 0
+  windSpeed:
+    m_OverrideState: 0
+    m_Value: 0
+  fogType:
+    m_OverrideState: 1
+    m_Value: 0
+  m_Version: 1
+--- !u!114 &5000221820811740086
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -153,7 +214,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 953beb541740ddc499d005ee80c9ff29, type: 3}
-  m_Name: 
+  m_Name: Fog
   m_EditorClassIdentifier: 
   active: 1
   quality:
@@ -190,8 +251,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 50
   meanFreePath:
-    m_OverrideState: 1
-    m_Value: 30
+    m_OverrideState: 0
+    m_Value: 400
   enableVolumetricFog:
     m_OverrideState: 1
     m_Value: 1
@@ -208,8 +269,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 2
   anisotropy:
-    m_OverrideState: 1
-    m_Value: 0.65
+    m_OverrideState: 0
+    m_Value: 0
   sliceDistributionUniformity:
     m_OverrideState: 0
     m_Value: 0.75
@@ -234,7 +295,7 @@ MonoBehaviour:
   directionalLightsOnly:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &-55014884898361023
+--- !u!114 &7387239775714480124
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -258,10 +319,10 @@ MonoBehaviour:
     m_Value: {x: 0, y: 0}
   bottomAltitude:
     m_OverrideState: 1
-    m_Value: 1000
+    m_Value: 1200
   altitudeRange:
     m_OverrideState: 1
-    m_Value: 5000
+    m_Value: 2000
   fadeInMode:
     m_OverrideState: 0
     m_Value: 0
@@ -293,7 +354,7 @@ MonoBehaviour:
     m_Value: 1
   m_CloudPreset:
     m_OverrideState: 1
-    m_Value: 3
+    m_Value: 1
   cumulusMap:
     m_OverrideState: 0
     m_Value: {fileID: 0}
@@ -337,16 +398,7 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.037
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.6
+        time: 0.15
         value: 1
         inSlope: 0
         outSlope: 0
@@ -356,7 +408,7 @@ MonoBehaviour:
         outWeight: 0
       - serializedVersion: 3
         time: 1
-        value: 0
+        value: 0.1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -381,35 +433,8 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.05
-        value: 0.8
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.2438
-        value: 0.9498
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.5
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 0.93
-        value: 0.9268
+        time: 0.1
+        value: 0.9
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -443,7 +468,7 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.1
+        time: 0.25
         value: 0.4
         inSlope: 0
         outSlope: 0
@@ -474,10 +499,10 @@ MonoBehaviour:
     m_Value: 0.5
   densityMultiplier:
     m_OverrideState: 1
-    m_Value: 0.35
+    m_Value: 0.4
   shapeFactor:
     m_OverrideState: 1
-    m_Value: 0.825
+    m_Value: 0.875
   shapeScale:
     m_OverrideState: 1
     m_Value: 5
@@ -498,7 +523,7 @@ MonoBehaviour:
     m_Value: 0
   microErosionFactor:
     m_OverrideState: 1
-    m_Value: 0.6
+    m_Value: 0.65
   microErosionScale:
     m_OverrideState: 1
     m_Value: 300
@@ -557,7 +582,7 @@ MonoBehaviour:
     m_Value: 1
   shadowResolution:
     m_OverrideState: 1
-    m_Value: 1024
+    m_Value: 64
   shadowDistance:
     m_OverrideState: 0
     m_Value: 8000
@@ -586,64 +611,3 @@ MonoBehaviour:
   m_ObsoleteShapeOffsetZ:
     m_OverrideState: 0
     m_Value: 0
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: SkyandFogSettingsProfile
-  m_EditorClassIdentifier: 
-  components:
-  - {fileID: 1142777632297148762}
-  - {fileID: -7724654706381055090}
-  - {fileID: -4151792930034644520}
-  - {fileID: -55014884898361023}
---- !u!114 &1142777632297148762
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d7593b3a9277ac4696b20006c21dde2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  skyType:
-    m_OverrideState: 1
-    m_Value: 4
-  cloudType:
-    m_OverrideState: 0
-    m_Value: 0
-  skyAmbientMode:
-    m_OverrideState: 0
-    m_Value: 1
-  planetRadius:
-    m_OverrideState: 0
-    m_Value: 6378.1
-  renderingSpace:
-    m_OverrideState: 0
-    m_Value: 1
-  centerMode:
-    m_OverrideState: 0
-    m_Value: 0
-  planetCenter:
-    m_OverrideState: 0
-    m_Value: {x: 0, y: -6378.1, z: 0}
-  windOrientation:
-    m_OverrideState: 0
-    m_Value: 0
-  windSpeed:
-    m_OverrideState: 0
-    m_Value: 0
-  fogType:
-    m_OverrideState: 1
-    m_Value: 0
-  m_Version: 1

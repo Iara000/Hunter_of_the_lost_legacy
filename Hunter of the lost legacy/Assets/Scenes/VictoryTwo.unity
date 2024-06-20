@@ -285,63 +285,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d924dbbdbb3bb54f97ae48434391cd9, type: 3}
---- !u!1001 &1006376777
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3298482169000054620, guid: f6153a8d1b727a340a9d2eb8071c3e6c, type: 3}
-      propertyPath: m_Name
-      value: Sky and Fog Volume
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013529616099161286, guid: f6153a8d1b727a340a9d2eb8071c3e6c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013529616099161286, guid: f6153a8d1b727a340a9d2eb8071c3e6c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013529616099161286, guid: f6153a8d1b727a340a9d2eb8071c3e6c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013529616099161286, guid: f6153a8d1b727a340a9d2eb8071c3e6c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013529616099161286, guid: f6153a8d1b727a340a9d2eb8071c3e6c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013529616099161286, guid: f6153a8d1b727a340a9d2eb8071c3e6c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013529616099161286, guid: f6153a8d1b727a340a9d2eb8071c3e6c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013529616099161286, guid: f6153a8d1b727a340a9d2eb8071c3e6c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013529616099161286, guid: f6153a8d1b727a340a9d2eb8071c3e6c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5013529616099161286, guid: f6153a8d1b727a340a9d2eb8071c3e6c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f6153a8d1b727a340a9d2eb8071c3e6c, type: 3}
 --- !u!1001 &1032634207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -393,6 +336,14 @@ PrefabInstance:
     - target: {fileID: 6020525198781695344, guid: 74ffe890770e80243bc5271e5717bf1f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188167655912868766, guid: 74ffe890770e80243bc5271e5717bf1f, type: 3}
+      propertyPath: TAAQuality
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9188167655912868766, guid: 74ffe890770e80243bc5271e5717bf1f, type: 3}
+      propertyPath: antialiasing
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -535,6 +486,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1938532076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1938532078}
+  - component: {fileID: 1938532077}
+  m_Layer: 0
+  m_Name: Sky and Fog Global Volume
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1938532077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938532076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: e38f8b743ece3f648abb301593169fa9, type: 2}
+--- !u!4 &1938532078
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938532076}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 36.211586, y: 26.721745, z: -82.48263}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1979203520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -544,8 +544,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 380663555692991578, guid: b9b11114877ee8a44aabea0999349044, type: 3}
+      propertyPath: m_Intensity
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 380663555692991578, guid: b9b11114877ee8a44aabea0999349044, type: 3}
+      propertyPath: m_ShadowAngle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 380663555692991578, guid: b9b11114877ee8a44aabea0999349044, type: 3}
       propertyPath: m_ColorTemperature
       value: 20000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695854596241482131, guid: b9b11114877ee8a44aabea0999349044, type: 3}
+      propertyPath: m_AngularDiameter
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695854596241482131, guid: b9b11114877ee8a44aabea0999349044, type: 3}
+      propertyPath: m_ShadowResolution.m_Level
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1695854596241482131, guid: b9b11114877ee8a44aabea0999349044, type: 3}
+      propertyPath: m_UseContactShadow.m_Level
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3238487619045082665, guid: b9b11114877ee8a44aabea0999349044, type: 3}
       propertyPath: m_LocalPosition.x
@@ -601,9 +621,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 81342081}
-  - {fileID: 1006376777}
   - {fileID: 1979203520}
   - {fileID: 268146458}
   - {fileID: 1669011780}
   - {fileID: 1032634207}
   - {fileID: 1307628756}
+  - {fileID: 1938532078}

@@ -2,42 +2,55 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Player2 : MonoBehaviour
 {
-    public float speed;
+    public GameObject pai;
     Rigidbody rb;
     public Transform gun;
     public GameObject bullet;
-    public float tempoEntreTiros;
+    float tempoEntreTiros = 3;
     float cronometro;
     public HealthBar healthBar;
-    public int maxHealth;
+    int maxHealth = 100;
     int currentHealth;
+    bool dying = true;
     void Start()
     {
+        Transform filho = pai.transform.GetChild(0);
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
         cronometro = tempoEntreTiros;
         rb = GetComponent<Rigidbody>();
     }
-    void Update()
-    {
-        Shoot();
-    }
     void FixedUpdate()
     {
+        Shoot();
         Move();
+        Dying();
     }
     void Move()
     {
-        float horizontal = Input.GetAxis("Horizontal") * speed;
-        Vector3 move = new Vector3(horizontal, 0, 10);
-        rb.linearVelocity = move;
+        if (!Input.GetKey(KeyCode.LeftArrow))
+        {
+            rb.linearVelocity = Vector3.zero;
+        }
+        if (!Input.GetKey(KeyCode.RightArrow))
+        {
+            rb.linearVelocity = Vector3.zero;
+        }
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            rb.linearVelocity = Vector3.right * 10;
+        }
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            rb.linearVelocity = Vector3.left * 10;
+        }
     }
     void Shoot()
     {
         cronometro -= Time.deltaTime;
         if (cronometro <= 0f)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKey(KeyCode.Space))
             {
                 Instantiate(bullet, gun.position, gun.rotation);
                 cronometro = tempoEntreTiros;
@@ -56,13 +69,27 @@ public class Player2 : MonoBehaviour
     }
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Bullet"))
+        if (dying)
         {
-            TakeDamage(20);
+            if (other.gameObject.CompareTag("Bullet"))
+            {
+                TakeDamage(10);
+            }
+            if (other.gameObject.CompareTag("Enemy"))
+            {
+                TakeDamage(90);
+            }
         }
-        if (other.gameObject.CompareTag("Enemy"))
+    }
+    void Dying()
+    {
+        if (Input.GetKeyDown(KeyCode.O))
         {
-            TakeDamage(80);
+            dying = false;
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            dying = true;
         }
     }
 }

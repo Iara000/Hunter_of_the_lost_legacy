@@ -24,13 +24,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Shader Graphs_RainOcean
-  m_Shader: {fileID: -6465566751694194690, guid: e05555af364fb0e4ab8d336aa70f9b55,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: e05555af364fb0e4ab8d336aa70f9b55, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
@@ -70,8 +69,8 @@ Material:
     - _Fade_Start: 5
     - _Float: 10
     - _Max_mip_bias: 8
-    - _Normal_Intensity: 5
-    - _Tiling: 1
+    - _Normal_Intensity: 10
+    - _Tiling: 0.05
     m_Colors:
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

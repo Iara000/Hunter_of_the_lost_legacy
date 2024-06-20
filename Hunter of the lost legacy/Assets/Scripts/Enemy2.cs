@@ -2,10 +2,6 @@ using UnityEngine;
 public class EnemyNoGun : MonoBehaviour
 {
     public Vector3 Speed;
-    void Start()
-    {
-
-    }
     void FixedUpdate()
     {
         Move();

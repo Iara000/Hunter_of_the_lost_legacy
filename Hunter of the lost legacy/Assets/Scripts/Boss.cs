@@ -2,13 +2,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Boss : MonoBehaviour
 {
-    public float speed;
-    public int maxHealth;
+    public GameObject pai;
+    int maxHealth = 1000;
     int currentHealth;
     public HealthBar healthBar;
     public ParticleSystem particleEffect;
     void Start()
     {
+        Transform filho = pai.transform.GetChild(0);
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
     }
@@ -18,7 +19,6 @@ public class Boss : MonoBehaviour
     }
     void Move()
     {
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
         transform.Translate(Vector3.right * 0.5f * Time.deltaTime);
     }
     void TakeDamage(int damageAmount)
@@ -30,10 +30,6 @@ public class Boss : MonoBehaviour
         {
             particleEffect.Play();
         }
-        else 
-        {
-            particleEffect.Stop();
-        }
         if (currentHealth <= 0)
         {
             SceneManager.LoadScene("VictoryTwo");
@@ -43,7 +39,7 @@ public class Boss : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            TakeDamage(20);
+            TakeDamage(10);
         }
     }
 }
