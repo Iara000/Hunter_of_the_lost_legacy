@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
             }
             if (other.gameObject.CompareTag("Enemy"))
             {
-                TakeDamage(80);
+                Destroy(gameObject);
             }
         }
     }

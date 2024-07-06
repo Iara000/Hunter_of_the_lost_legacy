@@ -19,7 +19,7 @@ public class Boss : MonoBehaviour
     }
     void Move()
     {
-        transform.Translate(Vector3.right * 0.5f * Time.deltaTime);
+        transform.Translate(Vector3.right * 0.3f * Time.deltaTime);
     }
     void TakeDamage(int damageAmount)
     {
@@ -39,7 +39,7 @@ public class Boss : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            TakeDamage(10);
+            TakeDamage(13);
         }
     }
 }

@@ -71,7 +71,7 @@ PrefabInstance:
       addedObject: {fileID: 4107113798439587296}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 1de83d0e916092844950782f0d3faec5, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6853682665867201011}
+      addedObject: {fileID: -6511235481927094863}
   m_SourcePrefab: {fileID: 100100000, guid: 1de83d0e916092844950782f0d3faec5, type: 3}
 --- !u!1 &3533196337312269901 stripped
 GameObject:
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterSurfaceName: Ocean
---- !u!114 &6853682665867201011
+--- !u!114 &-6511235481927094863
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3533196337312269901}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d925ffac37f18b3498e96c6be5388103, type: 3}
+  m_Script: {fileID: 11500000, guid: 46e92355ffde61849926a954c2220bf4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 10, y: 0, z: 10}

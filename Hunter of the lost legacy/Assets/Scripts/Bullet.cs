@@ -30,5 +30,13 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (other.gameObject.CompareTag("TNT"))
+        {
+            Destroy(gameObject);
+        }
+        if (other.gameObject.CompareTag("GL"))
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -6,7 +6,7 @@ public class Player2 : MonoBehaviour
     Rigidbody rb;
     public Transform gun;
     public GameObject bullet;
-    float tempoEntreTiros = 3;
+    float tempoEntreTiros = 2;
     float cronometro;
     public HealthBar healthBar;
     int maxHealth = 100;
@@ -71,10 +71,6 @@ public class Player2 : MonoBehaviour
     {
         if (dying)
         {
-            if (other.gameObject.CompareTag("Bullet"))
-            {
-                TakeDamage(10);
-            }
             if (other.gameObject.CompareTag("Enemy"))
             {
                 TakeDamage(90);
