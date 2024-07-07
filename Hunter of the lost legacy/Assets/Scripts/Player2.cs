@@ -20,11 +20,15 @@ public class Player2 : MonoBehaviour
         cronometro = tempoEntreTiros;
         rb = GetComponent<Rigidbody>();
     }
+    void Update()
+    {
+        Dying();
+        Cenas();
+    }
     void FixedUpdate()
     {
         Shoot();
         Move();
-        Dying();
     }
     void Move()
     {
@@ -64,7 +68,7 @@ public class Player2 : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         if (currentHealth <= 0)
         {
-            SceneManager.LoadScene("Game Over");
+            SceneManager.LoadScene("Die");
         }
     }
     void OnCollisionEnter(Collision other)
@@ -86,6 +90,21 @@ public class Player2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             dying = true;
+        }
+    }
+    void Cenas()
+    {
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            SceneManager.LoadScene("Menu");
+        }
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            SceneManager.LoadScene("FaseOne");
+        }
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            SceneManager.LoadScene("BossFase");
         }
     }
 }

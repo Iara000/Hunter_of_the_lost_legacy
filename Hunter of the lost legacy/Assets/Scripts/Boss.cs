@@ -32,7 +32,7 @@ public class Boss : MonoBehaviour
         }
         if (currentHealth <= 0)
         {
-            SceneManager.LoadScene("VictoryTwo");
+            SceneManager.LoadScene("Legacy");
         }
     }
     void OnCollisionEnter(Collision other)

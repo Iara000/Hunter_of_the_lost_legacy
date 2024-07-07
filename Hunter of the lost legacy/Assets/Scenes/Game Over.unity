@@ -543,7 +543,7 @@ MonoBehaviour:
   start: {fileID: 1072425637}
   exit: {fileID: 0}
   anim: {fileID: 825012413}
-  nomeDaCena: Fase One
+  nomeDaCena: FaseOne
 --- !u!1001 &1426488699
 PrefabInstance:
   m_ObjectHideFlags: 0

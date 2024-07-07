@@ -613,7 +613,7 @@ MonoBehaviour:
   start: {fileID: 268146460}
   exit: {fileID: 0}
   anim: {fileID: 1056183048}
-  nomeDaCena: Boss Fase
+  nomeDaCena: BossFase
 --- !u!1 &1669011777
 GameObject:
   m_ObjectHideFlags: 0

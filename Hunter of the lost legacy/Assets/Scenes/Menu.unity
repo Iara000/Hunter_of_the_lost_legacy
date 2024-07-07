@@ -205,7 +205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f0862e2d49c27bc479975a5df9f63097, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.39211902
+      value: -0.015732765
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f0862e2d49c27bc479975a5df9f63097, type: 3}
       propertyPath: m_LocalPosition.z
@@ -262,6 +262,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3599317225752902980, guid: cff6d563f13c41e4c965b8d30576a260, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1515809985}
+    - target: {fileID: 3599317225752902980, guid: cff6d563f13c41e4c965b8d30576a260, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SairJogo
+      objectReference: {fileID: 0}
     - target: {fileID: 5205229006931871514, guid: cff6d563f13c41e4c965b8d30576a260, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -462,7 +470,51 @@ MonoBehaviour:
   start: {fileID: 898385582}
   exit: {fileID: 1181066263}
   anim: {fileID: 193535151}
-  nomeDaCena: Fase One
+  nomeDaCena: FaseOne
+--- !u!1 &1515809984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1515809986}
+  - component: {fileID: 1515809985}
+  m_Layer: 0
+  m_Name: Exit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1515809985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515809984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d68771db33f0ae42b6e7feb16975d5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1515809986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515809984}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.898073, y: -7.099052, z: 6.257016}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1615576577 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f0862e2d49c27bc479975a5df9f63097, type: 3}
@@ -923,3 +975,4 @@ SceneRoots:
   - {fileID: 153411270}
   - {fileID: 2061587216}
   - {fileID: 974171878}
+  - {fileID: 1515809986}

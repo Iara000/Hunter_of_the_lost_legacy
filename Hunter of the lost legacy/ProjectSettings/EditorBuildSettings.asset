@@ -9,10 +9,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
   - enabled: 1
-    path: Assets/Scenes/Fase One.unity
+    path: Assets/Scenes/FaseOne.unity
     guid: bc667f7e6153b8a40a0ab9b92693e2be
   - enabled: 1
-    path: Assets/Scenes/Boss Fase.unity
+    path: Assets/Scenes/BossFase.unity
     guid: 8981008c446de0e44bb7e608816f2e19
   - enabled: 1
     path: Assets/Scenes/Game Over.unity
@@ -21,8 +21,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Victory.unity
     guid: 7abb3058ad9acec418898741a33e034d
   - enabled: 1
-    path: Assets/Scenes/VictoryTwo.unity
+    path: Assets/Scenes/Victory2.unity
     guid: 08d58cc23b0e71e4ca1be0f5093a0d34
+  - enabled: 1
+    path: Assets/Scenes/Legacy.unity
+    guid: 1a8c1d7278793784a93330cf34d74b44
+  - enabled: 1
+    path: Assets/Scenes/Die.unity
+    guid: 3998bd2a8ac135e4a885ed29cbebb6d3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 35845fe01580c41289b024647b1d1c53, type: 3}
   m_UseUCBPForAssetBundles: 0
